@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+body {
+   margin: 0;
+}
+
+.splatter-bg {
+  position: relative;
+  overflow: hidden;
+}
+
+.splatter-bg::before {
+  content: "";
+  position: absolute;
+  inset: -100%;
+  width: 200%;
+  height: 200%;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle, white 1px, transparent 1px),
+    radial-gradient(circle, white 1.5px, transparent 1px),
+    radial-gradient(circle, white 0.8px, transparent 1px);
+  background-size:
+    150px 150px,
+    200px 200px,
+    120px 120px;
+  background-position:
+    0 0,
+    40px 60px,
+    100px 20px;
+  opacity: 0.25;
+  mix-blend-mode: lighten;
+  z-index: 1;
+  animation: dustPassSmooth 15s linear infinite;
+}
+
+.splatter-bg::after {
+  content: "";
+  position: absolute;
+  inset: -100%;
+  width: 200%;
+  height: 200%;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle, white 1px, transparent 1px),
+    radial-gradient(circle, white 1.2px, transparent 1px);
+  background-size:
+    180px 180px,
+    140px 140px;
+  background-position:
+    70px 30px,
+    20px 90px;
+  opacity: 0.2;
+  mix-blend-mode: lighten;
+  z-index: 1;
+  animation: dustPassSmooth 20s linear infinite reverse;
+}
+
+@keyframes dustPassSmooth {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(150px, -150px);
+  }
+}
